@@ -1,10 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {showData,inputName,inputStreet,inputCity} from './Redux/action'
 import {useHistory ,Link} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 const ClickButton=(props)=> {
     // const history = useHistory()
+    console.log(props);
+
+    useEffect(() => {
+        return () => {
+            console.log('killed');
+        }
+    })
+
+    useEffect(() => {
+        console.log('mount');
+    }, [])
     return (
         <form>
             <input  value={props.name} onChange={(e)=>props.inputName(e,e.target.value)} placeholder="Name"/><br/><br/>
